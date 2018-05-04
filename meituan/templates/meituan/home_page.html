@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Echo's House</title>
+</head>
+<body>
+ <h1>Amazing Sweets</h1>
+ <p>Your satisfaction is our duty</p>
+
+ <h2>Here are all our products!</h2>
+
+ <!-- Product 1 -->
+ <p>Icecream:15RMB</p>
+ <img src="http://img3.duitang.com/uploads/item/201511/21/20151121204025_BLmri.jpeg">
+ <br>
+
+ <!-- Product 2 -->
+ <p>Macaron:8RMB</p>
+ <img src="http://img3.duitang.com/uploads/item/201304/10/20130410160846_CUAzF.jpeg">
+
+ <!-- Product 3 -->
+ <p>Lolipop:5RMB</p>
+ <img src="http://imgsrc.baidu.com/imgad/pic/item/5243fbf2b2119313ec5034976e380cd791238d82.jpg">
+
+ <!--order Form -->
+ <h2>Place your oder</h2>
+ <form action="{% url 'meituan:home_page' %}"method="POST">
+     {% csrf_token %}
+     <input type="text" name="item" placeholder="Please Type Which Product You Want"><br>
+     <textarea name="address" placeholder="Please Type Your Address"></textarea><br>
+     <input type="submit" value="Place Your Order">
+</form>
+
+<!--Show Order -->
+<h1>Your Order:</h1>
+<p>Item Ordered:{{item}}</p>
+<p>Delivery Address:{{address}}</p>
+
+</body>
+</html>
